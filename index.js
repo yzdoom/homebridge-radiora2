@@ -92,8 +92,8 @@ class RadioRA2Platform {
             this.config.rawMode
         );
 
-        this.log.info("***** QSE BUILD *****");
-this.log.info(JSON.stringify(this.config, null, 2));
+        //this.log.info("***** QSE BUILD *****");
+        //this.log.info(JSON.stringify(this.config, null, 2));
 
         this.setupConnections();
     }
