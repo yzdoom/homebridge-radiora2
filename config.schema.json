@@ -84,22 +84,23 @@
 								"functionBody": "return !model.lights[arrayIndices].exclude;"
 							}
 						},
-							"id": {
+						"id": {
 							"title": "Device Integration ID",
 							"type": "string",
 							"required": true,
 							"condition": {
 								"functionBody": "return !model.lights[arrayIndices].exclude;"
-								}
-							},
-							"button": {
+							}
+						},
+						"button": {
 							"title": "Button",
 							"type": "string",
 							"required": true,
 							"condition": {
 								"functionBody": "return !model.lights[arrayIndices].exclude;"
-							},
-							"connection": {
+							}
+						},
+						"connection": {
 							"title": "Connection Type",
 							"type": "string",
 							"required": false,
@@ -107,7 +108,7 @@
 								"functionBody": "return !model.windowcoverings[arrayIndices].exclude;"
 							}	
 						}
-						}
+						
 					}
 				}
         },
