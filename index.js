@@ -618,8 +618,10 @@ class RadioRA2Platform {
     }
 
     loadQseButtons() {
+        this.log.info("Loading QSE Phantom Buttons...");
         const deviceType = 'qse phantom button';
-        const deviceArray = this.config.qsebuttons || [];
+        const deviceArray = this.config.phantomButtons || [];
+        this.log.info(`Found ${deviceArray.length} QSE Phantom Buttons in config.`);
 
         deviceArray.forEach((deviceConfig) => {
             if (deviceConfig.disabled || deviceConfig.exclude) {
