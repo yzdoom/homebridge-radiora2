@@ -29,22 +29,6 @@
 				"type": "string",
 				"required":true
 			},
-			"qse": {
-				"title": "QSE IP Address",
-				"type": "string",
-				"format": "ipv4",
-				"required": true
-			},
-			"qseusername": {
-				"title":"QSE Username",
-				"type": "string",
-				"required":true
-			},
-			"qsepassword": {
-				"title":"QSE Password",
-				"type": "string",
-				"required":true
-			},
 			"debug": {
 				"title": "Enable debug logging",
 				"description": "Only enable temporarily, it will fill your log with accessory commands and statuses",
@@ -56,6 +40,35 @@
 				"description": "Only enable temporarily, it will fill your log with every RadioRA2 command sent and recevied",
 				"type": "boolean",
 				"required":false
+			},
+			"qse": {
+				"type": "object",
+				"required": false,
+				"properties": {
+					"name": {
+						"title": "Name",
+						"type": "string",
+						"required": true,
+						"default": "QSE",
+						"description": "Name of the system as seen in homebridge logs."
+					},
+					"host": {
+						"title": "QSE IP Address",
+						"type": "string",
+						"format": "ipv4",
+						"required": true
+					},
+					"username": {
+						"title":"Integration Username",
+						"type": "string",
+						"required":true
+					},
+					"password": {
+						"title":"Integration Password",
+						"type": "string",
+						"required":true
+					}
+				}
 			},
 			"lights": {
 				"type": "array",
