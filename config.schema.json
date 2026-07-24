@@ -70,6 +70,47 @@
 					}
 				}
 			},
+			"phantomButtons":{
+				"type": "array",
+				"required": false,
+				"items": {
+					"type": "object",
+					"properties": {
+						"name": {
+							"title": "Name",
+							"type": "string",
+							"required": true,
+							"condition": {
+								"functionBody": "return !model.lights[arrayIndices].exclude;"
+							}
+						},
+							"id": {
+							"title": "Device Integration ID",
+							"type": "string",
+							"required": true,
+							"condition": {
+								"functionBody": "return !model.lights[arrayIndices].exclude;"
+								}
+							},
+							"button": {
+							"title": "Button",
+							"type": "string",
+							"required": true,
+							"condition": {
+								"functionBody": "return !model.lights[arrayIndices].exclude;"
+							},
+							"connection": {
+							"title": "Connection Type",
+							"type": "string",
+							"required": false,
+							"condition": {
+								"functionBody": "return !model.windowcoverings[arrayIndices].exclude;"
+							}	
+						}
+						}
+					}
+				}
+        },
 			"lights": {
 				"type": "array",
 				"required": false,
@@ -416,7 +457,7 @@
 					"properties": {
 						"id": {
 							"title": "Device Integration ID",
-							"type": "integer",
+							"type": "string",
 							"required": true,
 							"condition": {
 								"functionBody": "return !model.windowcoverings[arrayIndices].exclude;"
@@ -477,6 +518,14 @@
 							"title": "Exclude from HomeKit",
 							"type": "boolean",
 							"required": false
+						},
+						"connection": {
+							"title": "Connection Type",
+							"type": "string",
+							"required": false,
+							"condition": {
+								"functionBody": "return !model.windowcoverings[arrayIndices].exclude;"
+							}	
 						}
 					}
 				}

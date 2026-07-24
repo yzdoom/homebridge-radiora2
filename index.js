@@ -123,7 +123,7 @@ this.log.info(JSON.stringify(this.config, null, 2));
             this.log.info(
                 `Logged in to RadioRA2 Main Repeater at ${repeaterAddress}`
             );
-            //this.loadAccessoriesWhenReady();
+            this.loadAccessoriesWhenReady();
         });
 
         this.radiora2.connect();
@@ -152,7 +152,7 @@ this.log.info(JSON.stringify(this.config, null, 2));
             this.qse.on('loggedIn', () => {
                 this.qseLoggedIn = true;
                 this.log.info(`Logged in to QSE at ${qse.host}`);
-                //this.loadAccessoriesWhenReady();
+                this.loadAccessoriesWhenReady();
             });
 
             this.qse.connect();
