@@ -29,6 +29,22 @@
 				"type": "string",
 				"required":true
 			},
+			"qse": {
+				"title": "QSE IP Address",
+				"type": "string",
+				"format": "ipv4",
+				"required": true
+			},
+			"qseusername": {
+				"title":"QSE Username",
+				"type": "string",
+				"required":true
+			},
+			"qsepassword": {
+				"title":"QSE Password",
+				"type": "string",
+				"required":true
+			},
 			"debug": {
 				"title": "Enable debug logging",
 				"description": "Only enable temporarily, it will fill your log with accessory commands and statuses",

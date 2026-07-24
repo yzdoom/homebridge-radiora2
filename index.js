@@ -72,6 +72,15 @@ class RadioRA2Platform {
         this.radiora2 = new RadioRa2(repeaterAddress, this.config.username, this.config.password, this.log);
         this.radiora2.connect();
 
+        this.qse = new RadioRa2(this.config.qse, this.config.qseusername, this.config.qsepassword, this.log);
+        this.qse.connect();
+
+        this.qse.on("loggedIn", function () {
+
+            this.log.info("Logged in to QSE Controller at " + this.config.qse);
+        }.bind(this));
+
+
         this.radiora2.on("loggedIn", function () {
 
             this.log.info("Logged in to RadioRA2 Main Repeater at " + repeaterAddress);
@@ -314,6 +323,10 @@ class RadioRA2Platform {
         //Disconnect cleaning when homebridge is shutting down
         process.on("SIGINT", function() {this.radiora2.disconnect()}.bind(this));
         process.on("SIGTERM", function() {this.radiora2.disconnect()}.bind(this));
+
+        process.on("SIGINT", function() {this.qse.disconnect()}.bind(this));
+        process.on("SIGTERM", function() {this.qse.disconnect()}.bind(this));
+
 
     }
 }
