@@ -92,6 +92,9 @@ class RadioRA2Platform {
             this.config.rawMode
         );
 
+        this.log.info("***** QSE BUILD *****");
+this.log.info(JSON.stringify(this.config, null, 2));
+
         this.setupConnections();
     }
 
@@ -120,10 +123,12 @@ class RadioRA2Platform {
             this.log.info(
                 `Logged in to RadioRA2 Main Repeater at ${repeaterAddress}`
             );
-            this.loadAccessoriesWhenReady();
+            //this.loadAccessoriesWhenReady();
         });
 
         this.radiora2.connect();
+
+        this.log.info("Setting up QSE connection if configured...");
 
         if (this.config.qse && this.config.qse.host) {
             const qse = this.config.qse;
@@ -147,12 +152,15 @@ class RadioRA2Platform {
             this.qse.on('loggedIn', () => {
                 this.qseLoggedIn = true;
                 this.log.info(`Logged in to QSE at ${qse.host}`);
-                this.loadAccessoriesWhenReady();
+                //this.loadAccessoriesWhenReady();
             });
 
             this.qse.connect();
         } else {
             this.qse = null;
+            this.log.info(
+                `Attempting connection to QSE at failed ${qse.host}...`
+            );
         }
 
         process.on('SIGINT', () => this.disconnect());
